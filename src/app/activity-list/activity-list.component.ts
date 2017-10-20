@@ -10,9 +10,9 @@ import { ActivityService } from '../services/activity.service';
 export class ActivityListComponent implements OnInit {
 
   activities: IActivity[];
-  totalActivities: number
-  totalDistance: number
-  firstDate: Date
+  totalActivities: number;
+  totalDistance: number;
+  firstDate: Date;
 
   constructor(private _activityService: ActivityService) { }
 
