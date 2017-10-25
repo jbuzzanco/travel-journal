@@ -6,6 +6,7 @@ import { ActivityListComponent } from './activity-list/activity-list.component';
 import { MapComponent } from './map/map.component';
 
 import { ActivityService } from './services/activity.service';
+import{ MapService } from './services/map.service';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from '../routes';
 
@@ -21,7 +22,7 @@ import { appRoutes } from '../routes';
     RouterModule,
     BrowserModule
   ],
-  providers: [ActivityService],
+  providers: [ActivityService, MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { RouterModule }

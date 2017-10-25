@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MapService } from '../services/map.service';
 import { IActivity} from '../../shared/activity.model';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-map',
@@ -16,7 +18,7 @@ export class MapComponent implements OnInit {
   activityName: string;
   activityComments: string;
   activityDate: Date;
-  activiytDistance: number;
+  activityDistance: number;
   gpx: any;
 
 
@@ -24,6 +26,17 @@ export class MapComponent implements OnInit {
     this.activity = this._mapService.getActivity(
       +this._route.snapshot.params['id']
     )
+  }
+
+  ngAfterViewInit(){
+    this._mapService.plotActivity(+this._route.snapshot.params['id']);
+    this.activityName = this.activity.name;
+    this.activityComments = this.activity.comments;
+    this.activityDate = this.activity.Date;
+    this.activityDistance = this.activity.distance;
+    this.gpx = this.activity.gpxData;
+
+
   }
 
 }
